@@ -4,7 +4,7 @@
 //     console.log(arr[i]*arr[i]);
 // }
 
-const { use, useState } = require("react");
+// const { use, useState } = require("react");
 
 // while loops
 // let i = 0;
@@ -37,22 +37,22 @@ const users = [
   { id: 4, name: "David", age: 28, isActive: false },
   { id: 5, name: "Eva", age: 35, isActive: true }
 ];
-// for each loop
+// for each loop --> iterat through all element
 // users.forEach((item)=>{
-//     console.log(item.name);
+    // console.log(item.name);
 // })
 
-// Map method
+// Map method --> return a portion of values through key
 // const newArr = users.map((items) => items.age);
 // console.log(newArr);
 
-// fiter method
+// fiter method -->Based on true false value
 // const newArr = users.filter((items)=>{
 //     return items.isActive == true;
 // })
 // const newArr = users.filter(itmes => itmes.isActive);
 // console.log(newArr);
 
-// reduce method
+// reduce method -->(newVer) Internal variable name, (items) Each object identifier, (0) insitial value of the internal variable
 const returnedNewVar = users.reduce((newVer , items)=> (items.age + newVer),0);
 console.log(returnedNewVar);
