@@ -1,0 +1,43 @@
+<!-- 
+    Without bind: this inside the event handler → the element (button).
+
+    With bind: this inside the event handler → your object.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Submit</button>
+</body>
+<script>
+    // we have to run a method when ever a new object is created. And also have to print the refence when ever calling the method.
+    class react{
+        constructor(){
+            this.framework = "react";
+            this.server = "https://localhost//3000"
+
+            // document.querySelector('button').addEventListener("click", this.method()); --> it would run immediately when the constructor executes (not when button is clicked).
+
+            // document.querySelector('button').addEventListener("click",this.method); //--> this will show undiffine when we want to print the this
+            document.querySelector("button").addEventListener("click",this.method.bind(this));
+
+
+        }
+        method(){
+            console.log("button pressed")
+            //->without bind
+            //console.log(this);  this became window object. “Since the button triggered the event, this should point to the button.”
+
+            // -->with bind
+            console.log(this); // Now, no matter who triggers it, this will always = obj.
+            console.log(this.server)
+        }
+    }
+    const r = new react(); //--> with out this all class method and element will not work.
+</script>
+</html>
